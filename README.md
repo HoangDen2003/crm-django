@@ -2,7 +2,7 @@
 
 Chạy lệnh sau để tải code về máy:
 
-- `git clone: `
+- `git clone: https://github.com/HoangDen2003/crm-django.git`
 - `cd crmdjango`
 
 # Install
@@ -22,6 +22,7 @@ Chạy lệnh sau để tải code về máy:
 # Run
 
 - `python manage.py runserver`
+
   Sau đó mở trình duyệt và truy cập: http://127.0.0.1:8000/admin
 
 # API Document (Swagger)

@@ -6,8 +6,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.views.decorators.csrf import csrf_exempt
+from drf_spectacular.utils import extend_schema
 
 # Create your views here.
+@extend_schema(summary="API get all tasks, filter by status and assignor's name", description="Một API đơn giản trả về JSON")
 @api_view(['GET'])
 @csrf_exempt
 @permission_classes([IsAuthenticated])

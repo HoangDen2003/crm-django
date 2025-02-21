@@ -14,6 +14,9 @@ from pathlib import Path
 from datetime import timedelta
 import environ
 import dj_database_url
+import pymysql
+pymysql.install_as_MySQLdb()
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

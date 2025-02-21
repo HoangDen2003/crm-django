@@ -105,15 +105,24 @@ paths:
           description: Không tìm thấy khách hàng
   /dashboard/:
     get:
-      operationId: dashboard_retrieve
+      operationId: dashboard_search
       tags:
         - dashboard
       security:
         - cookieAuth: []
         - basicAuth: []
+      parameters:
+        - name: search
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Search keyword to filter dashboard results
       responses:
         "200":
-          description: No response body
+          description: Tìm kiếm thành công
+        "404":
+          description: Không tìm thấy
   /dashboard/create/:
     post:
       operationId: dashboard_create_create

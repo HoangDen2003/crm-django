@@ -1,0 +1,308 @@
+openapi: 3.0.3
+info:
+  title: CRM DJANGO API
+  version: 1.0.0
+  description: API documentation for my project
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /auth/login/:
+    post:
+      operationId: auth_login
+      tags:
+        - auth
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "200":
+          description: Đăng nhập thành công
+        "400":
+          description: Sai thông tin đăng nhập
+  /auth/register/:
+    post:
+      operationId: auth_register
+      tags:
+        - auth
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+      responses:
+        "201":
+          description: Đăng ký thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+  /customer/:
+    get:
+      operationId: customer_retrieve
+      description: Một API đơn giản trả về JSON
+      summary: Simple API
+      tags:
+        - customer
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Ok
+  /customer/create/:
+    post:
+      operationId: customer_create_create
+      tags:
+        - customer
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "201":
+          description: Tạo khách hàng thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+  /customer/delete/{id}:
+    delete:
+      operationId: customer_delete_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - customer
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "204":
+          description: Xóa thành công
+        "404":
+          description: Không tìm thấy khách hàng
+  /customer/update/{id}:
+    put:
+      operationId: customer_update_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - customer
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Cập nhật thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+        "404":
+          description: Không tìm thấy khách hàng
+  /dashboard/:
+    get:
+      operationId: dashboard_retrieve
+      tags:
+        - dashboard
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: No response body
+  /dashboard/create/:
+    post:
+      operationId: dashboard_create_create
+      tags:
+        - dashboard
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "201":
+          description: Tạo task thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+  /dashboard/delete/{id}:
+    delete:
+      operationId: dashboard_delete_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - dashboard
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "204":
+          description: Xóa thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+        "404":
+          description: Không tìm thấy task
+  /dashboard/update/{id}:
+    put:
+      operationId: dashboard_update_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - dashboard
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Cập nhật thông tin task thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+        "404":
+          description: Không tìm thấy task
+  /employee/:
+    get:
+      operationId: employee_retrieve
+      tags:
+        - employee
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Ok
+  /employee/create/:
+    post:
+      operationId: employee_create_create
+      tags:
+        - employee
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "201":
+          description: Tạo nhan viên thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+  /employee/delete/{id}:
+    delete:
+      operationId: employee_delete_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - employee
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "204":
+          description: Xóa thành công
+        "404":
+          description: Không tìm thấy nhân viên
+  /employee/update/{id}:
+    put:
+      operationId: employee_update_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - employee
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Cập nhật thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+        "404":
+          description: Không tìm thấy nhân viên
+  /product/:
+    get:
+      operationId: product_retrieve
+      tags:
+        - product
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Ok
+  /product/create/:
+    post:
+      operationId: product_create_create
+      tags:
+        - product
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "201":
+          description: Tạo sản phẩm thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+  /product/delete/{id}:
+    delete:
+      operationId: product_delete_destroy
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - product
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "204":
+          description: Xóa thành công
+        "404":
+          description: Không tìm thấy sản phẩm
+  /product/update/{id}:
+    put:
+      operationId: product_update_update
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - product
+      security:
+        - cookieAuth: []
+        - basicAuth: []
+      responses:
+        "200":
+          description: Cập nhật thành công
+        "400":
+          description: Dữ liệu không hợp lệ
+        "404":
+          description: Không tìm thấy sản phẩm
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
